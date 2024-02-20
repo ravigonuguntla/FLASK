@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Web Monitor</title>
+</head>
+<body>
+    <h1>Dark Web Monitor</h1>
+
+    <form method="POST" action="{{ url_for('check_leaks') }}">
+        <button type="submit">Check for Leaks</button>
+    </form>
+
+    {% if leaked_data %}
+        <h2>Leaked Data:</h2>
+        <ul>
+            {% for data in leaked_data %}
+                <li>{{ data }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
